@@ -1,8 +1,14 @@
-config/TestConfiguration.java
- config.TestConfiguration
-pages/BasePage.java
- pages.BasePage
-steps/BasicSteps.java
- steps.BasicSteps
-steps/InitSteps.java
- steps.InitSteps
+omcg/pages/BasePage.java
+ omcg.pages.BasePage
+omcg/steps/BasicSteps.java
+ omcg.steps.BasicSteps
+omcg/service/AppiumService.java
+ omcg.service.AppiumService
+omcg/steps/InitSteps.java
+ omcg.steps.InitSteps
+omcg/AppiumCheesyApp.java
+ omcg.AppiumCheesyApp
+omcg/steps/RunTests.java
+ omcg.steps.RunTests
+omcg/service/AppiumServiceImpl.java
+ omcg.service.AppiumServiceImpl
