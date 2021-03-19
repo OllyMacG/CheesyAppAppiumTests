@@ -1,6 +1,5 @@
 package omcg.service;
 
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,8 +11,6 @@ public class AppiumServiceImpl implements AppiumService {
 
     @Value("${device.name}")
     private String deviceName;
-    @Value("${device.version}")
-    private String deviceVersion;
     @Value("${device.platform}")
     private String devicePlatform;
     @Value("${application.package}")
@@ -28,7 +25,6 @@ public class AppiumServiceImpl implements AppiumService {
     @PostConstruct
     public void setup(){
         capabilities.setCapability("deviceName", deviceName);
-        capabilities.setCapability(CapabilityType.VERSION, deviceVersion);
         capabilities.setCapability("app", appLocation);
         capabilities.setCapability("platformName", devicePlatform);
         capabilities.setCapability("appPackage", applicationPackage);

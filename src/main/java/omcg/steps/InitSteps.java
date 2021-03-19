@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.net.MalformedURLException;
@@ -31,6 +32,7 @@ public class InitSteps {
     private AppiumService appiumService;
     private AndroidDriver<AndroidElement> driver;
 
+    @Bean
     public AndroidDriver<AndroidElement> getDriver() throws MalformedURLException {
         if (driver == null) {
             driver = new AndroidDriver(new URL(appiumServer), appiumService.getCapabilities());

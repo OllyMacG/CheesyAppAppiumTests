@@ -2,28 +2,23 @@ package omcg.pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import lombok.Getter;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
+@Getter
+public class LoginPage extends BasePage {
 
-public class BasePage {
-
-    @Autowired
     protected AndroidDriver<AndroidElement> driver;
-    public WebDriverWait wait;
-    static final long DEFAULT_EXPLICIT_WAIT = 30;
-    static final long DEFAULT_IMPLICIT_WAIT = 10;
-    public static Duration duration = Duration.of(DEFAULT_IMPLICIT_WAIT, ChronoUnit.SECONDS);
 
-    @Autowired
-    public BasePage(AndroidDriver<AndroidElement> driver) {
+    @AndroidFindBy(id = "next_button")
+    public AndroidElement loginButton;
+
+    public LoginPage(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
         wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT);
     }
-
 }
-
